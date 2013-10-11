@@ -8,4 +8,12 @@
     <servlet-name>health</servlet-name>
     <url-pattern>/health</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>SendFromYahoo</servlet-name>
+    <servlet-class>com.test.nikhil.SendFromYahoo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SendFromYahoo</servlet-name>
+    <url-pattern>/SendFromYahoo</url-pattern>
+  </servlet-mapping>
 </web-app>
