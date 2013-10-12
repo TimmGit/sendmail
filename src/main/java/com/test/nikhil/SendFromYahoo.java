@@ -70,7 +70,7 @@ public class SendFromYahoo extends HttpServlet {
 	      
 	      output = "Sent message successfully....";
 	      request.setAttribute("output", output);
-	      request.getRequestDispatcher("/index.jsp").forward(request, response);
+	      request.getRequestDispatcher("/success.jsp").forward(request, response);
 	      
 	   }catch (MessagingException mex) {
 	      mex.printStackTrace();
