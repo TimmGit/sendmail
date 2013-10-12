@@ -16,15 +16,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class SendFromYahoo
+ * Mail Send program
+ * @author nikhil mone
  */
 @WebServlet("/SendFromYahoo")
 public class SendFromYahoo extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Sender's email ID needs to be mentioned
 	     String from = "mone_nikhil@yahoo.in";
@@ -32,6 +30,7 @@ public class SendFromYahoo extends HttpServlet {
 	    // Recipient's email ID needs to be mentioned.
 	   String to = "nikhilmone7@gmail.com";
 	   String host = "smtp.mail.yahoo.com";
+	   String output = null;
 
 	   // Get system properties
 	   Properties properties = System.getProperties();
@@ -58,17 +57,21 @@ public class SendFromYahoo extends HttpServlet {
 	                               new InternetAddress(to));
 
 	      // Set Subject: header field
-	      message.setSubject("This is the Subject Line!");
+	      message.setSubject("Test Mail");
 
 	      // Now set the actual message
-	      message.setText("This is actual message");
+	      message.setText("Hi, this is a test mail");
 
 	      // Send message
 	      Transport transport = session.getTransport("smtp");
 	      transport.connect(host, from, pass);
 	      transport.sendMessage(message, message.getAllRecipients());
 	      transport.close();
-	      System.out.println("Sent message successfully....");
+	      
+	      output = "Sent message successfully....";
+	      request.setAttribute("output", output);
+	      request.getRequestDispatcher("/index.jsp").forward(request, response);
+	      
 	   }catch (MessagingException mex) {
 	      mex.printStackTrace();
 	   }
