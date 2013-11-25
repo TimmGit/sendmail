@@ -25,10 +25,10 @@ public class SendFromYahoo extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Sender's email ID needs to be mentioned
-	     String from = "mone_nikhil@yahoo.in";
-	     String pass ="yabadabad";
+	     String from = "sender@yahoo.in";
+	     String pass ="badpassword";
 	    // Recipient's email ID needs to be mentioned.
-	   String to = "nikhilmone7@gmail.com";
+	   String to = "receiver@gmail.com";
 	   String host = "smtp.mail.yahoo.com";
 	   String output = null;
 
